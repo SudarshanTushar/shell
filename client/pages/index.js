@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <div className="bg-slate-50 min-h-screen font-sans scroll-smooth">
       <Head>
-        <title>Shell Industrial Compressors | Authorized Dealer</title>
+        <title>Shell Compressor | Authorized Industrial Dealer</title>
         <meta name="description" content="Authorized dealer for Shell Make Belt Driven Piston Air Compressors in Pune. Contact Tushar Shinde for best rates." />
       </Head>
 
@@ -67,12 +67,12 @@ export default function Home() {
         
         <div className="relative max-w-7xl mx-auto px-4 text-center">
           <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-brand-orange border border-brand-orange/50 uppercase rounded-full bg-brand-orange/10">
-            Authorized Shell Stockist
+            Authorized Stockist
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-8">
-            Industrial Power.<br/>
+            Shell Industrial<br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-orange-400">
-              Unbeatable Pricing.
+              Compressors
             </span>
           </h1>
           <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
@@ -95,10 +95,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <span className="text-brand-orange font-bold tracking-widest uppercase text-sm">Who We Are</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-ind-blue mt-2 mb-6">Engineered for Your Success</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-ind-blue mt-2 mb-6">Powering Your Production</h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              At <span className="font-bold text-ind-blue">INDCOMP</span>, we don't just sell boxes; we power production lines. 
-              Founded by <span className="font-bold text-ind-blue">Mr. Tushar Shinde</span>, our mission is to eliminate downtime for Indian MSMEs.
+              At <span className="font-bold text-ind-blue">Shell Compressor</span>, we don't just sell boxes; we power production lines. 
+              Led by <span className="font-bold text-ind-blue">Mr. Tushar Shinde</span>, our mission is to eliminate downtime for Indian MSMEs.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
               We specialize in <strong>Shell Make</strong> compressors because they offer the perfect balance of 
@@ -117,7 +117,7 @@ export default function Home() {
             </div>
           </div>
           <div className="relative h-96 bg-gray-200 rounded-lg overflow-hidden shadow-2xl">
-            {/* Placeholder for About Image - Replace with a photo of your shop or team if available */}
+            {/* Placeholder for About Image */}
             <div className="absolute inset-0 flex items-center justify-center bg-slate-800 text-gray-500 font-bold">
               [About Us / Shop Floor Photo]
             </div>
@@ -137,7 +137,6 @@ export default function Home() {
           {PRODUCTS.map((item) => (
             <div key={item.id} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col group">
               <div className="h-64 bg-white border-b border-gray-100 relative">
-                 {/* Product Image */}
                  <img 
                   src={item.image} 
                   alt={item.title}
@@ -219,7 +218,7 @@ export default function Home() {
                 </div>
                 <div className="ml-6">
                   <h4 className="text-lg font-bold">Email Support</h4>
-                  <p className="text-gray-400 mt-1">sales@indcomp.in</p>
+                  <p className="text-gray-400 mt-1">sales@shellcompressor.in</p>
                 </div>
               </div>
             </div>
@@ -227,7 +226,6 @@ export default function Home() {
 
           {/* Right: The Form */}
           <div className="bg-white rounded-lg p-1">
-             {/* We embed the existing form, but now it sits nicely in this layout */}
              <LeadForm /> 
           </div>
 
@@ -238,7 +236,7 @@ export default function Home() {
       <footer className="bg-slate-900 text-gray-500 py-12 border-t border-gray-800 text-sm">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <span className="text-white font-bold text-lg">INDCOMP</span>
+            <span className="text-white font-bold text-lg">Shell Compressor</span>
             <p className="mt-2">Trusted Industrial Partner since 2026.</p>
           </div>
           <div className="flex gap-6">
