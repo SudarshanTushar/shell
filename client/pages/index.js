@@ -56,7 +56,7 @@ export default function Home() {
     <div className="bg-slate-50 min-h-screen font-sans scroll-smooth">
       <Head>
         <title>Shell Compressor | Authorized Industrial Dealer</title>
-        <meta name="description" content="Authorized dealer for Shell Make Belt Driven Piston Air Compressors in Pune. Contact Tushar Shinde for best rates." />
+        <meta name="description" content="Authorized dealer for Shell Make Belt Driven Piston Air Compressors in Pune. Contact Sales for best rates." />
       </Head>
 
       <Navbar />
@@ -98,11 +98,11 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-ind-blue mt-2 mb-6">Powering Your Production</h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               At <span className="font-bold text-ind-blue">Shell Compressor</span>, we don't just sell boxes; we power production lines. 
-              Led by <span className="font-bold text-ind-blue">Mr. Tushar Shinde</span>, our mission is to eliminate downtime for Indian MSMEs.
+              Under the leadership of <span className="font-bold text-ind-blue">Mr. Tushar Shinde</span>, our mission is to eliminate downtime for Indian MSMEs.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
               We specialize in <strong>Shell Make</strong> compressors because they offer the perfect balance of 
-              rugged durability and cost-efficiency. Every unit sold comes with our personal guarantee of service.
+              rugged durability and cost-efficiency. Every unit is backed by our comprehensive service assurance.
             </p>
             
             <div className="grid grid-cols-2 gap-6">
@@ -112,7 +112,7 @@ export default function Home() {
               </div>
               <div className="p-4 bg-slate-50 border-l-4 border-brand-orange rounded">
                 <h4 className="font-bold text-ind-blue">Rapid Support</h4>
-                <p className="text-sm text-gray-500">Technical guidance directly from the owner.</p>
+                <p className="text-sm text-gray-500">Technical guidance from senior engineers.</p>
               </div>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function Home() {
                 <div className="ml-6">
                   <h4 className="text-lg font-bold">Direct Sales Line</h4>
                   <p className="text-2xl font-bold text-white mt-1">+91 90288 60430</p>
-                  <p className="text-brand-orange text-sm font-bold uppercase mt-1">Mr. Tushar Shinde (Owner)</p>
+                  <p className="text-brand-orange text-sm font-bold uppercase mt-1">Mr. Tushar Shinde (Sales Director)</p>
                 </div>
               </div>
 
