@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import LeadForm from '../components/LeadForm';
+import EnergyAudit from '../components/EnergyAudit';
 
 // --- INVENTORY DATA ---
 const PRODUCTS = [
@@ -55,77 +56,117 @@ export default function Home() {
   return (
     <div className="bg-slate-50 min-h-screen font-sans scroll-smooth">
       <Head>
-        <title>Shell Compressor | Authorized Industrial Dealer</title>
-        <meta name="description" content="Authorized dealer for Shell Make Belt Driven Piston Air Compressors in Pune. Contact Sales for best rates." />
+        <title>Shell Compressor | Industrial Efficiency Systems</title>
+        <meta name="description" content="Stop energy loss. Upgrade to Shell Industrial Compressors." />
       </Head>
 
       <Navbar />
 
-      {/* 1. HERO SECTION */}
-      <header className="relative bg-ind-blue text-white py-24 lg:py-32 overflow-hidden">
+      {/* 1. HERO SECTION WITH AUDIT ENGINE */}
+      <header className="relative bg-ind-blue text-white py-16 lg:py-24 overflow-hidden">
         <div className="absolute top-0 right-0 w-2/3 h-full bg-white/5 skew-x-12 transform origin-top-right pointer-events-none"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 text-center">
-          <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-brand-orange border border-brand-orange/50 uppercase rounded-full bg-brand-orange/10">
-            Authorized Stockist
+        <div className="relative max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-brand-orange border border-brand-orange/50 uppercase rounded-full bg-brand-orange/10">
+              Authorized Stockist
+            </div>
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+              Is Your Compressor <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-orange-400">
+                Burning Profit?
+              </span>
+            </h1>
+            <p className="text-lg text-gray-400 mb-8 max-w-lg">
+              Old pneumatic systems bleed up to 30% of your power bill. 
+              Upgrade to <strong>Shell Industrial</strong> for maximum efficiency.
+            </p>
+            
+            <div className="flex gap-8 text-sm font-bold text-gray-400">
+              <div className="flex flex-col">
+                <span className="text-3xl text-white">20+</span>
+                <span>Years Life</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-3xl text-white">40%</span>
+                <span>Less Heat</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-3xl text-white">24/7</span>
+                <span>Duty Cycle</span>
+              </div>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-8">
-            Shell Industrial<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-orange-400">
-              Compressors
-            </span>
-          </h1>
-          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-            We supply premium Shell Piston Compressors to factories across Maharashtra. 
-            Direct dealer margins passed to you.
-          </p>
-          <div className="flex justify-center gap-4">
-            <a href="#products" className="bg-brand-orange hover:bg-orange-600 text-white font-bold py-4 px-8 rounded uppercase tracking-wide transition shadow-lg shadow-orange-900/50">
-              View Catalog
-            </a>
-            <a href="#contact" className="border border-gray-600 hover:border-white text-gray-300 hover:text-white font-bold py-4 px-8 rounded uppercase tracking-wide transition">
-              Contact Sales
-            </a>
+          
+          <div className="relative z-10 w-full max-w-md mx-auto lg:ml-auto">
+            {/* INJECTING THE WEAPON */}
+            <EnergyAudit />
           </div>
         </div>
       </header>
 
-      {/* 2. ABOUT US SECTION */}
-      <section id="about" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="text-brand-orange font-bold tracking-widest uppercase text-sm">Who We Are</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-ind-blue mt-2 mb-6">Powering Your Production</h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              At <span className="font-bold text-ind-blue">Shell Compressor</span>, we don't just sell boxes; we power production lines. 
-              Under the leadership of <span className="font-bold text-ind-blue">Mr. Tushar Shinde</span>, our mission is to eliminate downtime for Indian MSMEs.
-            </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              We specialize in <strong>Shell Make</strong> compressors because they offer the perfect balance of 
-              rugged durability and cost-efficiency. Every unit is backed by our comprehensive service assurance.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-6">
-              <div className="p-4 bg-slate-50 border-l-4 border-brand-orange rounded">
-                <h4 className="font-bold text-ind-blue">100% Genuine</h4>
-                <p className="text-sm text-gray-500">Factory direct units with serial number tracking.</p>
-              </div>
-              <div className="p-4 bg-slate-50 border-l-4 border-brand-orange rounded">
-                <h4 className="font-bold text-ind-blue">Rapid Support</h4>
-                <p className="text-sm text-gray-500">Technical guidance from senior engineers.</p>
-              </div>
-            </div>
+      {/* 2. FEATURE 4: COMPETITOR COMPARISON (ANCHORING) */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-extrabold text-ind-blue">Why Upgrade to Shell?</h2>
+            <p className="text-gray-500 mt-4">See where your current generic unit fails.</p>
           </div>
-          <div className="relative h-96 bg-gray-200 rounded-lg overflow-hidden shadow-2xl">
-            {/* Placeholder for About Image */}
-            <div className="absolute inset-0 flex items-center justify-center bg-slate-800 text-gray-500 font-bold">
-              [About Us / Shop Floor Photo]
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 bg-red-50 rounded-xl border border-red-100 opacity-70 grayscale hover:grayscale-0 transition duration-500">
+              <h3 className="text-xl font-bold text-gray-500 mb-4">Generic Brands</h3>
+              <ul className="space-y-4 text-sm text-gray-600">
+                <li className="flex items-center text-red-600">
+                  <span className="mr-2">⚠</span> High RPM (More Heat)
+                </li>
+                <li className="flex items-center text-red-600">
+                  <span className="mr-2">⚠</span> Aluminium Windings (Risk)
+                </li>
+                <li className="flex items-center text-red-600">
+                  <span className="mr-2">⚠</span> 30% Pressure Drop
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-white rounded-xl shadow-2xl border-t-4 border-brand-orange transform scale-105 z-10">
+              <div className="text-xs font-bold text-brand-orange uppercase tracking-widest mb-2">The Shell Standard</div>
+              <h3 className="text-2xl font-bold text-ind-blue mb-6">Shell Industrial</h3>
+              <ul className="space-y-4 text-sm font-medium text-gray-700">
+                <li className="flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3">✓</span>
+                  100% Copper Windings
+                </li>
+                <li className="flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3">✓</span>
+                  Low RPM (Cool Running)
+                </li>
+                <li className="flex items-center">
+                  <span className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3">✓</span>
+                  Cast Iron Heavy Duty Block
+                </li>
+              </ul>
+            </div>
+
+            <div className="p-8 bg-slate-50 rounded-xl border border-slate-200">
+              <h3 className="text-xl font-bold text-ind-blue mb-4">Reconditioned / Used</h3>
+              <ul className="space-y-4 text-sm text-gray-600">
+                <li className="flex items-center text-gray-500">
+                  <span className="mr-2">?</span> Unknown History
+                </li>
+                <li className="flex items-center text-gray-500">
+                  <span className="mr-2">?</span> No Warranty Support
+                </li>
+                <li className="flex items-center text-red-500">
+                  <span className="mr-2">⚠</span> Hidden Power Surge
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. PRODUCTS GRID */}
+      {/* 3. INVENTORY GRID */}
       <section id="products" className="py-24 max-w-7xl mx-auto px-4 bg-slate-50">
         <div className="text-center mb-20">
           <span className="text-brand-orange font-bold tracking-widest uppercase text-sm">Our Inventory</span>
@@ -174,33 +215,17 @@ export default function Home() {
 
       {/* 4. CONTACT SECTION */}
       <section id="contact" className="relative py-24 bg-ind-blue text-white overflow-hidden">
-        {/* Background Overlay */}
         <div className="absolute inset-0 bg-[url('/assets/pattern.png')] opacity-10"></div>
-
         <div className="relative max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16">
           
-          {/* Left: Company Details */}
           <div>
             <span className="text-brand-orange font-bold tracking-widest uppercase text-sm">Get In Touch</span>
             <h2 className="text-4xl font-extrabold mt-2 mb-8">Ready to Upgrade?</h2>
             <p className="text-gray-400 text-lg mb-12">
-              Fill out the form for an immediate technical proposal, or call us directly. We are available 9 AM - 9 PM.
+              For direct orders or technical queries, contact our sales desk.
             </p>
 
             <div className="space-y-8">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 bg-brand-orange/20 p-4 rounded-lg">
-                  <svg className="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                </div>
-                <div className="ml-6">
-                  <h4 className="text-lg font-bold">Head Office</h4>
-                  <p className="text-gray-400 mt-1">
-                    Pune, Maharashtra, India<br/>
-                    (Visit by Appointment Only)
-                  </p>
-                </div>
-              </div>
-
               <div className="flex items-start">
                 <div className="flex-shrink-0 bg-brand-orange/20 p-4 rounded-lg">
                   <svg className="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
@@ -213,7 +238,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-start">
-                <div className="flex-shrink-0 bg-brand-orange/20 p-4 rounded-lg">
+                 <div className="flex-shrink-0 bg-brand-orange/20 p-4 rounded-lg">
                   <svg className="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
                 <div className="ml-6">
@@ -224,7 +249,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right: The Form */}
           <div className="bg-white rounded-lg p-1">
              <LeadForm /> 
           </div>
@@ -232,7 +256,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="bg-slate-900 text-gray-500 py-12 border-t border-gray-800 text-sm">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
