@@ -4,6 +4,7 @@ export default function EnergyAudit() {
   const [step, setStep] = useState(1);
   const [data, setData] = useState({ industry: '', city: '', bill: '', phone: '' });
   const [wasteProfile, setWasteProfile] = useState(null);
+  const [error, setError] = useState(''); // New Error State
 
   // FEATURE 2: INDUSTRY WASTE PROFILES
   const WASTE_STATS = {
@@ -19,20 +20,28 @@ export default function EnergyAudit() {
   };
 
   const calculateBleed = () => {
-    if (!data.bill) return;
+    // Validation: Require Bill Amount
+    if (!data.bill) {
+      setError('⚠ Please enter your monthly electricity bill amount.');
+      return;
+    }
+    setError('');
     setStep(2);
   };
 
   const submitLead = (e) => {
     e.preventDefault();
-    alert("Report Sent! (Backend Integration Required)");
-    // Here you would POST to your API
+    if (!data.phone) {
+       alert("Please enter a mobile number.");
+       return;
+    }
+    alert("Report Request Sent! We will call you at " + data.phone);
+    // Backend Integration would go here
   };
 
   // FEATURE 1: CALCULATIONS
   const loss = data.bill ? Math.round(data.bill * (wasteProfile?.loss || 0.2)) : 0;
-  const co2 = Math.round(loss / 8); // Rough estimate: 1kg CO2 per 8 Rs wasted
-  const savings = Math.round(loss * 0.8); // We can save 80% of their waste
+  const savings = Math.round(loss * 0.8); 
 
   return (
     <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
@@ -55,7 +64,8 @@ export default function EnergyAudit() {
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">Industry Type</label>
               <select 
-                className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-brand-orange outline-none"
+                className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-brand-orange outline-none bg-white"
+                value={data.industry}
                 onChange={(e) => handleIndustrySelect(e.target.value)}
               >
                 <option value="">Select Industry</option>
@@ -66,7 +76,7 @@ export default function EnergyAudit() {
               </select>
             </div>
 
-            {/* DYNAMIC WASTE PROFILE (Feature 2) */}
+            {/* DYNAMIC WASTE PROFILE */}
             {wasteProfile && (
               <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-brand-orange text-sm text-orange-900 font-medium animate-pulse">
                  ⚠️ ALERT: {data.city ? `Factories in ${data.city} show similar trends.` : ''} {wasteProfile.text}
@@ -79,7 +89,8 @@ export default function EnergyAudit() {
                 <input 
                   type="text" 
                   placeholder="e.g. Pune" 
-                  className="w-full p-3 border border-gray-300 rounded"
+                  className="w-full p-3 border border-gray-300 rounded focus:border-brand-orange outline-none"
+                  value={data.city}
                   onChange={(e) => setData({...data, city: e.target.value})}
                 />
               </div>
@@ -87,12 +98,20 @@ export default function EnergyAudit() {
                 <label className="block text-sm font-bold text-gray-700 mb-2">Monthly Bill (₹)</label>
                 <input 
                   type="number" 
-                  placeholder="500000" 
-                  className="w-full p-3 border border-gray-300 rounded"
+                  placeholder="e.g. 500000" 
+                  className={`w-full p-3 border rounded focus:border-brand-orange outline-none ${error ? 'border-red-500 bg-red-50' : 'border-gray-300'}`}
+                  value={data.bill}
                   onChange={(e) => setData({...data, bill: e.target.value})}
                 />
               </div>
             </div>
+            
+            {/* ERROR MESSAGE */}
+            {error && (
+              <div className="text-red-600 text-sm font-bold text-center">
+                {error}
+              </div>
+            )}
 
             {/* FEATURE 3: BILL DECODER */}
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:bg-gray-50 transition cursor-pointer group">
@@ -113,7 +132,7 @@ export default function EnergyAudit() {
 
         {/* STEP 2: RESULTS & CAPTURE */}
         {step === 2 && (
-          <div className="space-y-6">
+          <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             
             {/* FEATURE 1: BLEED STATS */}
             <div className="grid grid-cols-2 gap-4 text-center">
@@ -128,7 +147,7 @@ export default function EnergyAudit() {
             </div>
 
             {/* FEATURE 5: SMART QUOTE */}
-            <div className="bg-slate-50 p-4 rounded text-left">
+            <div className="bg-slate-50 p-4 rounded text-left border border-slate-200">
               <h4 className="font-bold text-ind-blue mb-2 text-sm uppercase">Recommended Setup:</h4>
               <ul className="text-sm text-gray-600 space-y-1">
                 <li>• <strong>Compressor:</strong> {loss > 50000 ? 'Shell Screw 30kW (VFD)' : 'Shell Piston 10HP'}</li>
@@ -143,7 +162,8 @@ export default function EnergyAudit() {
               <input 
                 type="tel" 
                 placeholder="Enter Mobile Number" 
-                className="w-full p-3 border border-gray-300 rounded mb-4"
+                className="w-full p-3 border border-gray-300 rounded mb-4 focus:border-brand-orange outline-none"
+                value={data.phone}
                 onChange={(e) => setData({...data, phone: e.target.value})}
               />
               <button 
@@ -153,9 +173,12 @@ export default function EnergyAudit() {
                 <span>Send Optimization Report</span>
                 <svg className="w-5 h-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               </button>
-              <p className="text-xs text-center text-gray-400 mt-3">
-                Includes ROI breakdown & Technical Specs.
-              </p>
+              <button 
+                onClick={() => setStep(1)}
+                className="w-full text-center text-gray-400 text-xs mt-4 hover:text-gray-600 underline"
+              >
+                Start Over
+              </button>
             </div>
           </div>
         )}
