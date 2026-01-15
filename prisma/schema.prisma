@@ -1,0 +1,33 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Lead {
+  id          Int      @id @default(autoincrement())
+  name        String
+  company     String
+  email       String
+  phone       String
+  message     String?
+  productType String?  // e.g., "Screw Compressor", "Air Dryer"
+  status      String   @default("NEW") // NEW, CONTACTED, QUOTED, CLOSED
+  createdAt   DateTime @default(now())
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  category    String   // RECIPROCATING, SCREW, TURBO
+  power       String   // e.g., "15kW - 75kW"
+  pressure    String   // e.g., "7 bar - 13 bar"
+  description String
+  imageUrl    String
+  pdfUrl      String?
+  views       Int      @default(0)
+  enquiries   Int      @default(0)
+}
