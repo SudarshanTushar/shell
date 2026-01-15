@@ -4,7 +4,7 @@ export default function EnergyAudit() {
   const [step, setStep] = useState(1);
   const [data, setData] = useState({ industry: '', city: '', bill: '', phone: '' });
   const [wasteProfile, setWasteProfile] = useState(null);
-  const [error, setError] = useState(''); // New Error State
+  const [error, setError] = useState('');
 
   // FEATURE 2: INDUSTRY WASTE PROFILES
   const WASTE_STATS = {
@@ -20,7 +20,6 @@ export default function EnergyAudit() {
   };
 
   const calculateBleed = () => {
-    // Validation: Require Bill Amount
     if (!data.bill) {
       setError('⚠ Please enter your monthly electricity bill amount.');
       return;
@@ -36,12 +35,14 @@ export default function EnergyAudit() {
        return;
     }
     alert("Report Request Sent! We will call you at " + data.phone);
-    // Backend Integration would go here
   };
 
   // FEATURE 1: CALCULATIONS
   const loss = data.bill ? Math.round(data.bill * (wasteProfile?.loss || 0.2)) : 0;
   const savings = Math.round(loss * 0.8); 
+
+  // Common Input Style - ADDED text-gray-900 HERE
+  const inputStyle = "w-full p-3 border border-gray-300 rounded focus:border-brand-orange outline-none text-gray-900 bg-white placeholder-gray-400";
 
   return (
     <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
@@ -64,7 +65,7 @@ export default function EnergyAudit() {
             <div>
               <label className="block text-sm font-bold text-gray-700 mb-2">Industry Type</label>
               <select 
-                className="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-brand-orange outline-none bg-white"
+                className={inputStyle}
                 value={data.industry}
                 onChange={(e) => handleIndustrySelect(e.target.value)}
               >
@@ -89,7 +90,7 @@ export default function EnergyAudit() {
                 <input 
                   type="text" 
                   placeholder="e.g. Pune" 
-                  className="w-full p-3 border border-gray-300 rounded focus:border-brand-orange outline-none"
+                  className={inputStyle}
                   value={data.city}
                   onChange={(e) => setData({...data, city: e.target.value})}
                 />
@@ -99,7 +100,7 @@ export default function EnergyAudit() {
                 <input 
                   type="number" 
                   placeholder="e.g. 500000" 
-                  className={`w-full p-3 border rounded focus:border-brand-orange outline-none ${error ? 'border-red-500 bg-red-50' : 'border-gray-300'}`}
+                  className={`${inputStyle} ${error ? 'border-red-500 bg-red-50' : ''}`}
                   value={data.bill}
                   onChange={(e) => setData({...data, bill: e.target.value})}
                 />
@@ -162,13 +163,13 @@ export default function EnergyAudit() {
               <input 
                 type="tel" 
                 placeholder="Enter Mobile Number" 
-                className="w-full p-3 border border-gray-300 rounded mb-4 focus:border-brand-orange outline-none"
+                className={inputStyle}
                 value={data.phone}
                 onChange={(e) => setData({...data, phone: e.target.value})}
               />
               <button 
                 onClick={submitLead}
-                className="w-full bg-ind-blue text-white font-bold py-4 rounded uppercase tracking-widest hover:bg-slate-800 transition shadow-lg flex items-center justify-center gap-2"
+                className="w-full bg-ind-blue text-white font-bold py-4 rounded uppercase tracking-widest hover:bg-slate-800 transition shadow-lg flex items-center justify-center gap-2 mt-4"
               >
                 <span>Send Optimization Report</span>
                 <svg className="w-5 h-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
