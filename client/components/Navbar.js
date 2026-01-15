@@ -14,7 +14,7 @@ export default function Navbar() {
               <Link href="#about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">About Us</Link>
               <Link href="#products" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Inventory</Link>
               <Link href="#contact" className="bg-brand-orange hover:bg-orange-700 text-white px-4 py-2 rounded text-sm font-bold uppercase transition shadow-lg shadow-orange-900/40">
-                Contact Owner
+                Contact Sales
               </Link>
             </div>
           </div>
