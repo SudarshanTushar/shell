@@ -10,9 +10,12 @@ export default function Navbar() {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <Link href="/" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-              <Link href="#products" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</Link>
-              <Link href="#contact" className="bg-brand-orange hover:bg-orange-700 text-white px-4 py-2 rounded text-sm font-bold uppercase">Get Quote</Link>
+              <Link href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Home</Link>
+              <Link href="#about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">About Us</Link>
+              <Link href="#products" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition">Inventory</Link>
+              <Link href="#contact" className="bg-brand-orange hover:bg-orange-700 text-white px-4 py-2 rounded text-sm font-bold uppercase transition shadow-lg shadow-orange-900/40">
+                Contact Owner
+              </Link>
             </div>
           </div>
         </div>
